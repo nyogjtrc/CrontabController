@@ -14,6 +14,7 @@ usage_msg() {
 }
 
 install() {
+    echo "install"
 }
 
 case $i in

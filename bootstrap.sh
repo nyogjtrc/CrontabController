@@ -6,20 +6,44 @@
 # date: 2013/06/27
 #
 
-echo "Welcome to CrontabController";
+echo -e "\nWelcome to CrontabController\n"
+
+CRON_FILE_PATH="./cron_file"
 
 usage_msg() {
     echo "Usage:"
-    echo "  ./bootstrap.sh install"
+    echo "  ./bootstrap.sh list [ip]"
+    echo "  ./bootstrap.sh install [ip]"
 }
 
 install() {
-    echo "install"
+    if [ -z $1 ]; then
+        echo "missing file name..."
+        return
+    fi
+    echo "install $1"
 }
 
-case $i in
+list() {
+    CRON_FILE=$CRON_FILE_PATH"/"$1
+    if [ -f $CRON_FILE ]; then
+        cat $CRON_FILE
+    else
+        ls $CRON_FILE_PATH
+    fi
+}
+
+case $1 in
+    list)
+        list $2
+        ;;
+    install)
+        install $2
+        ;;
     *)
         usage_msg
         exit 1
         ;;
 esac
+
+echo -e "\nThank you for using CrontabController\n"

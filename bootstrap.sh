@@ -9,6 +9,7 @@
 
 # path where cron file you put in
 CRON_DATA_PATH="./cron_file"
+REMOTE_CRON_DIR=/tmp/cron_tmp_file/
 
 usage_msg() {
     echo -e "\nWelcome to CrontabController\n"
@@ -27,14 +28,14 @@ install() {
     cron_dir=$CRON_DATA_PATH"/"$1
 
     # upload crontab file
-    scp -r $cron_dir $1:/tmp/cron_tmp_file
+    scp -r $cron_dir $1:$REMOTE_CRON_DIR
 
     # install crontab
-    ssh $1 crontab /tmp/cron_tmp_file
+    ssh $1 crontab $REMOTE_CRON_DIR
 }
 
 uninstall() {
-    ssh $1 rm -rf /tmp/cron_tmp_file
+    ssh $1 rm -rIv $REMOTE_CRON_DIR
 }
 
 list() {

@@ -8,7 +8,7 @@
 # version 0.2
 
 # path where cron file you put in
-CRON_FILE_PATH="./cron_file"
+CRON_DATA_PATH="./cron_file"
 
 usage_msg() {
     echo -e "\nWelcome to CrontabController\n"
@@ -23,7 +23,7 @@ install() {
         return
     fi
     echo "install $1"
-    CRON_FILE=$CRON_FILE_PATH"/"$1
+    CRON_FILE=$CRON_DATA_PATH"/"$1
 
     # upload crontab file
     scp $CRON_FILE $1:/tmp/crontab_tmp_file
@@ -33,11 +33,11 @@ install() {
 }
 
 list() {
-    CRON_FILE=$CRON_FILE_PATH"/"$1
-    if [ -d $CRON_FILE ]; then
-        cat $CRON_FILE/*
+    cron_dir=$CRON_DATA_PATH"/"$1
+    if [ -d $cron_dir ]; then
+        cat $cron_dir/*
     else
-        ls $CRON_FILE_PATH
+        ls $CRON_DATA_PATH
     fi
 }
 

@@ -24,19 +24,26 @@ install() {
     fi
     echo "install $1"
     CRON_FILE=$CRON_DATA_PATH"/"$1
+    cron_dir=$CRON_DATA_PATH"/"$1
 
     # upload crontab file
-    scp $CRON_FILE $1:/tmp/crontab_tmp_file
+    scp -r $cron_dir $1:/tmp/cron_tmp_file
 
     # install crontab
-    ssh $1 crontab /tmp/crontab_tmp_file
+    ssh $1 crontab /tmp/cron_tmp_file
+}
+
+uninstall() {
+    ssh $1 rm -rf /tmp/cron_tmp_file
 }
 
 list() {
     cron_dir=$CRON_DATA_PATH"/"$1
     if [ -d $cron_dir ]; then
+        # output cron file
         cat $cron_dir/*
     else
+        # output machine list
         ls $CRON_DATA_PATH
     fi
 }
@@ -47,6 +54,9 @@ case $1 in
         ;;
     install)
         install $2
+        ;;
+    uninstall)
+        uninstall $2
         ;;
     *)
         usage_msg

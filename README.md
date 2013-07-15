@@ -1,14 +1,15 @@
-CrontabController
-=================
+# CrontabController
 
 Crontab Controller
 
-List Crontab
-------------
+## List Crontab
 
 ``./bootstrap.sh list [ip]``
 
-Install Crontab
----------------
+## Install Crontab
 
 ``./bootstrap.sh install [ip]``
+
+## Uninstall Crontab
+
+``./bootstrap.sh uninstall [ip]``

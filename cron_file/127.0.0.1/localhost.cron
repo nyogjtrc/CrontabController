@@ -1,0 +1,2 @@
+# simple example of crontab
+* * * * * date >> /tmp/crontab_controller.test

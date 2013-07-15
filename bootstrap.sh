@@ -5,13 +5,13 @@
 # author: nyogjtrc
 # date: 2013/06/27
 #
-
-echo -e "\nWelcome to CrontabController\n"
+# version 0.2
 
 # path where cron file you put in
 CRON_FILE_PATH="./cron_file"
 
 usage_msg() {
+    echo -e "\nWelcome to CrontabController\n"
     echo "Usage:"
     echo "  ./bootstrap.sh list [ip]"
     echo "  ./bootstrap.sh install [ip]"
@@ -34,8 +34,8 @@ install() {
 
 list() {
     CRON_FILE=$CRON_FILE_PATH"/"$1
-    if [ -f $CRON_FILE ]; then
-        cat $CRON_FILE
+    if [ -d $CRON_FILE ]; then
+        cat $CRON_FILE/*
     else
         ls $CRON_FILE_PATH
     fi
@@ -53,5 +53,3 @@ case $1 in
         exit 1
         ;;
 esac
-
-echo -e "\nThank you for using CrontabController\n"

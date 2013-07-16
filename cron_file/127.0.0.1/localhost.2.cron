@@ -1,2 +1,2 @@
-# simple example of crontab
+# simple example of crontab 2
 * * * * * uptime >> /tmp/crontab_controller.test

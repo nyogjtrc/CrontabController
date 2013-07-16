@@ -20,8 +20,8 @@ _usage_msg() {
     echo
     echo "Usage:"
     echo "  ./bootstrap.sh list [ip]"
-    echo "  ./bootstrap.sh install [ip]"
-    echo "  ./bootstrap.sh uninstall [ip]"
+    echo "  ./bootstrap.sh install <ip>"
+    echo "  ./bootstrap.sh uninstall <ip>"
 }
 
 _install() {

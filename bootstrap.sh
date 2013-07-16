@@ -12,14 +12,14 @@ CRON_DATA_PATH="./cron_file"
 TMP_DIR=/tmp/CrontabController
 REMOTE_CRON_DIR=/tmp/cron_tmp_file
 
-usage_msg() {
+_usage_msg() {
     echo -e "\nWelcome to CrontabController\n"
     echo "Usage:"
     echo "  ./bootstrap.sh list [ip]"
     echo "  ./bootstrap.sh install [ip]"
 }
 
-install() {
+_install() {
     if [ -z $1 ]; then
         echo "missing file name..."
         return
@@ -40,11 +40,11 @@ install() {
     ssh $1 crontab $REMOTE_CRON_DIR/$1
 }
 
-uninstall() {
+_uninstall() {
     ssh $1 rm -rIv $REMOTE_CRON_DIR
 }
 
-list() {
+_list() {
     if [ -z $1 ]; then
         # output machine list
         ls $CRON_DATA_PATH
@@ -56,16 +56,16 @@ list() {
 
 case $1 in
     list)
-        list $2
+        _list $2
         ;;
     install)
-        install $2
+        _install $2
         ;;
     uninstall)
-        uninstall $2
+        _uninstall $2
         ;;
     *)
-        usage_msg
+        _usage_msg
         exit 1
         ;;
 esac

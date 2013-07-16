@@ -3,20 +3,25 @@
 # CrontabController
 # 
 # author: nyogjtrc
-# date: 2013/06/27
+# create date: 2013/06/27
 #
+# update date: 2013/07/17
+# update by: nyogjtrc
 # version 0.2
 
 # path where cron file you put in
-CRON_DATA_PATH="./cron_file"
+CRON_DATA_PATH=./cron_file
 TMP_DIR=/tmp/CrontabController
 REMOTE_CRON_DIR=/tmp/cron_tmp_file
 
 _usage_msg() {
-    echo -e "\nWelcome to CrontabController\n"
+    echo
+    echo "Welcome to CrontabController"
+    echo
     echo "Usage:"
     echo "  ./bootstrap.sh list [ip]"
     echo "  ./bootstrap.sh install [ip]"
+    echo "  ./bootstrap.sh uninstall [ip]"
 }
 
 _install() {
@@ -41,6 +46,15 @@ _install() {
 }
 
 _uninstall() {
+    if [ -z $1 ]; then
+        echo "missing ip..."
+        return
+    fi
+
+    # uninstall crontab
+    ssh $1 crontab -ir
+
+    # remove file
     ssh $1 rm -rIv $REMOTE_CRON_DIR
 }
 
@@ -53,6 +67,10 @@ _list() {
         cat $CRON_DATA_PATH/$1/*
     fi
 }
+
+#
+# main code
+#
 
 case $1 in
     list)

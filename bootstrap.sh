@@ -35,6 +35,10 @@ _install() {
 
     #create tmp file
     mkdir -p $TMP_PATH
+
+    # test file
+    test -e $cron_dir || echo $1 "not exesit."; return
+
     cat $cron_dir/* > $TMP_PATH/$1
 
     # upload crontab file

@@ -12,14 +12,16 @@
 #include configuration file
 source config.sh
 
+echo $(date -Iseconds) : $0 $@ >> $LOG_FILE
+
 _usage_msg() {
     echo
     echo "Welcome to CrontabController"
     echo
     echo "Usage:"
     echo "  ./bootstrap.sh list [ip]"
-    echo "  ./bootstrap.sh install <ip>"
-    echo "  ./bootstrap.sh uninstall <ip>"
+    echo "                 install <ip>"
+    echo "                 uninstall <ip>"
 }
 
 _install() {

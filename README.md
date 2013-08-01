@@ -2,6 +2,8 @@
 
 one little tool to deploy and install crontab
 
+current version: v0.2
+
 ## some config
 
 default cron file path

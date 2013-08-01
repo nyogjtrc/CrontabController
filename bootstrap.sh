@@ -55,7 +55,7 @@ _uninstall() {
     ssh $1 crontab -ir
 
     # remove file
-    ssh $1 rm -rIv $REMOTE_CRON_PATH
+    ssh $1 rm -riv $REMOTE_CRON_PATH
 }
 
 _list() {

@@ -2,9 +2,14 @@
 
 ## version developing
 
+Fix:
+
+* replace **rm -I** to **rm -i**, because there is no **-I** option in old rm verion.
+
 Feature:
 
 * separate configuration file from bootstrap shell
+* write basic operation log
 
 ## v0.2
 

@@ -32,15 +32,15 @@ _install() {
     cron_dir=$CRON_DATA_PATH/$1
 
     #create tmp file
-    mkdir -p $TMP_DIR
-    cat $cron_dir/* > $TMP_DIR/$1
+    mkdir -p $TMP_PATH
+    cat $cron_dir/* > $TMP_PATH/$1
 
     # upload crontab file
-    ssh $1 mkdir -p $REMOTE_CRON_DIR
-    scp $TMP_DIR/$1 $1:$REMOTE_CRON_DIR/$1
+    ssh $1 mkdir -p $REMOTE_CRON_PATH
+    scp $TMP_PATH/$1 $1:$REMOTE_CRON_PATH/$1
 
     # install crontab
-    ssh $1 crontab $REMOTE_CRON_DIR/$1
+    ssh $1 crontab $REMOTE_CRON_PATH/$1
 }
 
 _uninstall() {
@@ -53,7 +53,7 @@ _uninstall() {
     ssh $1 crontab -ir
 
     # remove file
-    ssh $1 rm -rIv $REMOTE_CRON_DIR
+    ssh $1 rm -rIv $REMOTE_CRON_PATH
 }
 
 _list() {

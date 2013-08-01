@@ -68,6 +68,14 @@ _list() {
     fi
 }
 
+_remote_list() {
+    if [ -z $1 ]; then
+        echo "missing ip..."
+        return
+    fi
+    ssh $1 crontab -l
+}
+
 #
 # main code
 #
@@ -81,6 +89,9 @@ case $1 in
         ;;
     uninstall)
         _uninstall $2
+        ;;
+    remote)
+        _remote_list $2
         ;;
     *)
         _usage_msg

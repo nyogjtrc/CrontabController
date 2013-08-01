@@ -10,6 +10,7 @@ Feature:
 
 * separate configuration file from bootstrap shell
 * write basic operation log
+* list remote crontab
 
 ## v0.2
 

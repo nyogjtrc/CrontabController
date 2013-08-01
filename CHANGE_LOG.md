@@ -1,5 +1,11 @@
 # Change Log
 
+## version developing
+
+Feature:
+
+* separate configuration file from bootstrap shell
+
 ## v0.2
 
 Feature:

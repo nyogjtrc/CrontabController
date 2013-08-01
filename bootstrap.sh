@@ -7,12 +7,10 @@
 #
 # update date: 2013/07/17
 # update by: nyogjtrc
-# version 0.2
+# version 0.3
 
-# path where cron file you put in
-CRON_DATA_PATH=./cron_file
-TMP_DIR=/tmp/CrontabController
-REMOTE_CRON_DIR=/tmp/cron_tmp_file
+#include configuration file
+source config.sh
 
 _usage_msg() {
     echo

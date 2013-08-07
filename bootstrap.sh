@@ -5,7 +5,7 @@
 # author: nyogjtrc
 # create date: 2013/06/27
 #
-# update date: 2013/07/17
+# update date: 2013/08/07
 # update by: nyogjtrc
 # version 0.3
 
@@ -15,13 +15,24 @@ source config.sh
 echo $(date -Iseconds) : $0 $@ >> $LOG_FILE
 
 _usage_msg() {
-    echo
-    echo "Welcome to CrontabController"
-    echo
-    echo "Usage:"
-    echo "  ./bootstrap.sh list [ip]"
-    echo "                 install <ip>"
-    echo "                 uninstall <ip>"
+    cat <<Usage
+CrontabController, one tool to deploy crontab
+
+usage:
+  ./bootstrap.sh list [<ip>]
+                 install <ip>
+                 uninstall <ip>
+                 remote <ip>
+
+description:
+    list
+
+    install
+
+    uninstall
+
+    remote
+Usage
 }
 
 _install() {

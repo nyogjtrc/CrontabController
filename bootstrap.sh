@@ -43,41 +43,6 @@ description:
 Usage
 }
 
-_verify_ip() {
-    ip_regex='^(((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)[.]){3})(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$'
-    ip_regex_allow="${ip_regex}"
-    if echo -e "${1}" | egrep "${ip_regex_allow}" > /dev/null
-    then
-      echo -e " # ${1} is a valid ip "
-    else
-        echo " # ip : ${1} not available " ; exit 2
-    fi	
-}
-
-_fetch_all() {
-    echo -e " # function to be implemented "
-}
-
-_mkdir_working_directory() {
-    working_diretory_path="$( dirname ${1} )"
-    test ! -e "${working_diretory_path}" && 
-        mkdir -p "${working_diretory_path}"
-}
-
-_fetch() {
-    if [ -z $1 ]; then
-        # fetch all remote machine crontab
-        _fetch_all
-    else
-        # fetch remote machine crontab
-        _verify_ip "${1}" && {
-            working_copy_path="${CRON_DATA_PATH}"/"${1}"/"${1}".cron
-            _mkdir_working_directory "${working_copy_path}"
-            ssh "${1}" ' crontab -l ' > "${working_copy_path}"
-        }
-    fi
-}
-
 #
 # main code
 #

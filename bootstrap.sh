@@ -50,7 +50,10 @@ _install() {
     mkdir -p $TMP_PATH
 
     # test file
-    test -e $cron_dir || echo $1 "not exesit."; return
+    if [ ! -d $cron_dir ]; then
+        echo $1 "not exesit.";
+        return 0;
+    fi
 
     cat $cron_dir/* > $TMP_PATH/$1
 

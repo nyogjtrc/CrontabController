@@ -6,6 +6,7 @@ PROJECT="Crontab Controller"
 
 # path where cron file you put in
 CRON_DATA_PATH=./cron_file
+CRON_BAK_PATH=./cron_bak
 
 # log file
 LOG_FILE=./.operation.log

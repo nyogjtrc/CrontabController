@@ -1,2 +1,4 @@
 *.swp
 *.log
+/cron_file/
+/cron_bak/

@@ -25,21 +25,31 @@ _usage_msg() {
 CrontabController, one tool to deploy crontab
 
 usage:
-  ./bootstrap.sh list [<ip>]
-                 install <ip>
-                 uninstall <ip>
-                 remote <ip>
-                 fetch [ip]
-                 fetch_all
+  ./bootstrap.sh -l|--list [<ip>]
+                 -I|--install <ip>
+                 -U|--uninstall <ip>
+                 -r|--remote <ip>
+                 -f|--fetch <ip>
+                 -b|--backup|--bak <ip>
 
 description:
-    list
+    -l|--list
+        list local crontab file
 
-    install
+    -I|--install
+        install remote crontab
 
-    uninstall
+    -U|--uninstall
+        uninstall remote crontab
 
-    remote
+    -r|--remote
+        list remote crontab
+
+    -f|--fetch
+        fetch remote crontab
+
+    -b|--backup|--bak
+        back up remote crontab to local file
 Usage
 }
 
@@ -48,22 +58,19 @@ Usage
 #
 
 case $1 in
-    list)
-        _"${1}" $2
+    -l|--list)
+        _list $2
         ;;
-    install)
-        _"${1}" $2
+    -I|--install)
+        _install $2
         ;;
-    uninstall)
-        _"${1}" $2
+    -U|--uninstall)
+        _uninstall $2
         ;;
-    fetch)
-        _"${1}" $2
+    -f|--fetch)
+        _fetch $2
         ;;
-    fetch_all)
-        _"${1}"
-        ;;
-    remote)
+    -r|remote)
         _remote_list $2
         ;;
     -b|--backup|--bak)

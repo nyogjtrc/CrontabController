@@ -6,25 +6,34 @@ current version: v0.4
 
 ## Usage
 
-**List Crontab**
+```bash
+usage:
+  ./bootstrap.sh -l|--list [<ip>]
+                 -I|--install <ip>
+                 -U|--uninstall <ip>
+                 -r|--remote <ip>
+                 -f|--fetch <ip>
+                 -b|--backup|--bak <ip>
 
-``./bootstrap.sh list [ip]``
+description:
+    -l|--list
+        list local crontab file
 
-**Install Crontab**
+    -I|--install
+        install remote crontab
 
-``./bootstrap.sh install <ip>``
+    -U|--uninstall
+        uninstall remote crontab
 
-**Uninstall Crontab**
+    -r|--remote
+        list remote crontab
 
-``./bootstrap.sh uninstall <ip>``
+    -f|--fetch
+        fetch remote crontab
 
-**List Remote Crontab**
-
-``./bootstrap.sh remote <ip>``
-
-**Backup Remote Crontab**
-
-``./bootstrap.sh -b <ip>``
+    -b|--backup|--bak
+        back up remote crontab to local file
+```
 
 ## Some Configuration
 

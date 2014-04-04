@@ -80,3 +80,20 @@ _fetch() {
         }
     fi
 }
+
+
+# backup remote crontab file
+_backup_cron() {
+    if [ -z $1 ]; then
+        echo "missing ip..."
+        return
+    fi
+
+    backup_dir="${CRON_BAK_PATH}/${1}"
+    backup_file="${backup_dir}/backup.crontab"
+
+    mkdir -p $backup_dir
+
+    # doing backup
+    ssh $1 crontab -l > $backup_file
+}

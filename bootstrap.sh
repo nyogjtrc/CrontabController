@@ -66,6 +66,9 @@ case $1 in
     remote)
         _remote_list $2
         ;;
+    -b|--backup|--bak)
+        _backup_cron $2
+        ;;
     *)
         _usage_msg
         exit 1

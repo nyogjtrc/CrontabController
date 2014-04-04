@@ -18,22 +18,27 @@ current version: v0.4
 
 ``./bootstrap.sh uninstall <ip>``
 
-**List remote Crontab**
+**List Remote Crontab**
 
 ``./bootstrap.sh remote <ip>``
 
+**Backup Remote Crontab**
+
+``./bootstrap.sh -b <ip>``
+
 ## Some Configuration
 
-default cron file path
-
-``./cron_file``
+default cron file path at ``./cron_file``
+default backup file path at ``./cron_bak``
 
 use ip name as directory name.
 please put you cron file by below example.
 
 ``./cron_file/<ip>/some_thing_cron``
 
-writing log at
+## Operation Log
+
+controller will write log at
 
 ``./.operation.log``
 
@@ -41,5 +46,4 @@ writing log at
 
 1. common cron file
 2. looping to install all crontab
-3. backup file path and method
-4. checking method
+3. checking method

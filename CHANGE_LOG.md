@@ -2,9 +2,13 @@
 
 ## version developing
 
+
+## v0.3
+
 Fix:
 
 * replace **rm -I** to **rm -i**, because there is no **-I** option in old rm verion.
+* error when install empty ip dir.
 
 Feature:
 

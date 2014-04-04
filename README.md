@@ -2,7 +2,7 @@
 
 one little tool to deploy and install crontab
 
-current version: v0.3
+current version: v0.4
 
 ## Usage
 
@@ -17,6 +17,8 @@ current version: v0.3
 **Uninstall Crontab**
 
 ``./bootstrap.sh uninstall <ip>``
+
+**List remote Crontab**
 
 ``./bootstrap.sh remote <ip>``
 
@@ -39,3 +41,5 @@ writing log at
 
 1. common cron file
 2. looping to install all crontab
+3. backup file path and method
+4. checking method
